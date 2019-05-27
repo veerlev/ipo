@@ -5,52 +5,7 @@ class Souris {
     /*******************************************
      * Completez le programme a partir d'ici.
      *******************************************/
-/*
- * Le code fourni et reproduit plus bas :
-— « construit » des souris ;
-— les fait évoluer au moyen d’une méthode evolue ;
-— affiche les souris avant et après les avoir fait évoluer.
-Le corps de la classe Souris manque et c’est ce qu’il vous est demandé d’écrire.
-Une souris est caractérisée par son poids en grammes (un int), sa couleur (une
-String), son âge en mois (un int), son espérance de vie (un int) et une indication sur le fait qu’elle soit clonée ou pas (un booléen).
-Ces attributs seront nommés respectivement : poids, age, couleur, esperanceVie
-et clonee.
-Par ailleurs, les méthodes publiques de la classe Souris sont :
-— des constructeurs conformes à la méthode main fournie, avec l’ordre suivant pour les paramètres : le poids, la couleur, l’âge et l’espérance de vie.
-Ces deux derniers paramètres ont pour valeur par défaut zéro et 36 respectivement. La valeur 36 est stockée dans une constante fournie que vous
-utiliserez en écrivant ESPERANCE_VIE_DEFAUT. Les constructeurs afficheront le message Une nouvelle souris ! ;
-— un constructeur de copie qui doit afficher le message Clonage d’une souris ! ;
-une souris clonée a les mêmes caractéristiques que la souris d’origine, sauf
-son espérance de vie qui est moindre : les 4 cinquième de celle de la souris
-d’origine ;
-— une méthode toString() produisant une représentation d’une Souris
-respectant strictement le format suivant :
-Une souris <couleur>[, clonee,] de <age> mois et pesant <poids>
-grammes (sur une seule ligne)
-2
-où <age> est à remplacer par l’âge de la souris et <poids> par son
-poids. Le bout de phrase « , clonee, » ne sera affiché que si la souris
-a été clonée ;
-— une méthode vieillir qui augmentera d’une unité l’âge de la souris. Si
-la souris est clonée, elle doit devenir verte si elle atteint un âge supérieur
-à la moitié de son espérance de vie ; même si elle n’est pas appelée explicitement dans la méthode main(), cette méthode doit être publique ; elle
-sera testée ;
-— et une méthode evolue faisant vieillir la souris depuis son âge courant
-jusqu’à son espérance de vie.
-Tous les affichages demandés se feront sur le terminal et seront terminés par un
-saut de ligne. Un exemple de déroulement est fourni plus bas.
-1.2 Exemple de déroulement
-Une nouvelle souris !
-Une nouvelle souris !
-Clonage d’une souris !
-Une souris blanche de 2 mois et pesant 50 grammes
-Une souris grise de 0 mois et pesant 45 grammes
-Une souris grise, clonee, de 0 mois et pesant 45 grammes
-Une souris blanche de 36 mois et pesant 50 grammes
-Une souris grise de 36 mois et pesant 45 grammes
-Une souris verte, clonee, de 28 mois et pesant 45 grammes
- * 
- * */
+
  private int poids;
     private String couleur;
     private int age;
