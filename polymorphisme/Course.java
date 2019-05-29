@@ -94,6 +94,10 @@ class GrandPrix extends Rallye{
     
     public GrandPrix() {
         vehicules = new ArrayList<Vehicule>();
+    }    
+    
+    public void ajouter(Vehicule vehicule) {
+        vehicules.add(vehicule);
     }
 }
 
