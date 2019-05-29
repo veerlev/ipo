@@ -63,6 +63,10 @@ class Moto extends Vehicule{
         super(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant);
         possedeSidecar = possede;
     }
+    
+    public Moto(String unNom, double uneVitesseMaximale, int unPoids, int unNiveauCarburant) {
+        this(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant, false);
+    }
 }
 /*******************************************
  * Ne pas modifier apres cette ligne
