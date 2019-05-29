@@ -72,6 +72,15 @@ class Moto extends Vehicule{
     public Moto(String unNom, double uneVitesseMaximale, int unPoids, int unNiveauCarburant) {
         this(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant, false);
     }
+    
+    public String toString() {
+        String description = super.getNom() + "-> vitesse max = " + super.getVitesseMax() + " km/h, poids = ";
+        description += super.getPoids() + " kg, Moto";
+        if (possedeSidecar) {
+            description += ", avec sidecar";
+        }
+        return description;
+    }
 }
 /*******************************************
  * Ne pas modifier apres cette ligne
