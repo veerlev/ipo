@@ -89,13 +89,15 @@ class Moto extends Vehicule{
     }
 }
 
-class GrandPrix{
+class GrandPrix extends Rallye{
     private ArrayList<Vehicule> vehicules;
     
     public GrandPrix() {
         vehicules = new ArrayList<Vehicule>();
     }
 }
+
+class Rallye{}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
