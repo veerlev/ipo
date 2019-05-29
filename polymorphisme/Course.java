@@ -54,6 +54,8 @@ class Voiture extends Vehicule{
         categorie = uneCategorie;
     }
 }
+
+class Moto extends Vehicule{}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
