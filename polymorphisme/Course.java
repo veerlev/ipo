@@ -1,7 +1,7 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
-}
+class Vehicule{}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
