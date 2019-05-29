@@ -46,7 +46,14 @@ class Vehicule{
         return vitesseMaximale / poids;
      }
 }
-class Voiture extends Vehicule{}
+class Voiture extends Vehicule{
+    private String categorie;
+    
+    public Voiture(String unNom, double uneVitesseMaximale, int unPoids, int unNiveauCarburant, String uneCategorie) {
+        super(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant);
+        categorie = uneCategorie;
+    }
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
