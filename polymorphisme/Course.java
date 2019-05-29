@@ -17,6 +17,10 @@ class Vehicule{
     public Vehicule() {
         this("Anonyme", 130, 1000, 0);
     }
+    
+    public String toString() {
+        return nom + " -> vitesse max = " + vitesseMaximale + " km/h, poids = " + poids + " kg";
+    }
 }
 /*******************************************
  * Ne pas modifier apres cette ligne
