@@ -1,7 +1,19 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
-class Vehicule{}
+class Vehicule{
+    private String nom;
+    private double vitesseMaximale;
+    private int poids;
+    private int niveauCarburant;
+    
+    public Vehicule(String unNom, double uneVitesseMaximale, int unPoids, int unNiveauCarburant) {
+        nom = unNom;
+        vitesseMaximale = uneVitesseMaximale;
+        poids = unPoids;
+        niveauCarburant = unNiveauCarburant;
+    }
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
