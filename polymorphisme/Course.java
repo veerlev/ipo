@@ -55,7 +55,15 @@ class Voiture extends Vehicule{
     }
 }
 
-class Moto extends Vehicule{}
+class Moto extends Vehicule{
+
+    private boolean possedeSidecar;
+    
+    public Moto(String unNom, double uneVitesseMaximale, int unPoids, int unNiveauCarburant, boolean possede) {
+        super(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant);
+        possedeSidecar = possede;
+    }
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
