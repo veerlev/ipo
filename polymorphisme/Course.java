@@ -1,6 +1,8 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
+import java.util.ArrayList;
+
 class Vehicule{
     private String nom;
     private double vitesseMaximale;
@@ -87,7 +89,13 @@ class Moto extends Vehicule{
     }
 }
 
-class GrandPrix{}
+class GrandPrix{
+    private ArrayList<Vehicule> vehicules;
+    
+    public GrandPrix() {
+        vehicules = new ArrayList<Vehicule>();
+    }
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
