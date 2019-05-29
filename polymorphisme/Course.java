@@ -13,6 +13,10 @@ class Vehicule{
         poids = unPoids;
         niveauCarburant = unNiveauCarburant;
     }
+    
+    public Vehicule() {
+        this("Anonyme", 130, 1000, 0);
+    }
 }
 /*******************************************
  * Ne pas modifier apres cette ligne
