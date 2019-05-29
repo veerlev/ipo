@@ -46,6 +46,7 @@ class Vehicule{
         return vitesseMaximale / poids;
      }
 }
+class Voiture extends Vehicule{}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
