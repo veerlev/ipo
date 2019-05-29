@@ -53,6 +53,11 @@ class Voiture extends Vehicule{
         super(unNom, uneVitesseMaximale, unPoids, unNiveauCarburant);
         categorie = uneCategorie;
     }
+    
+    public String toString() {
+        return super.getNom() + " -> vitesse max = " + super.getVitesseMax() + " km/h, poids = "
+                + super.getPoids() + " kg, Voiture de " + categorie;
+    }
 }
 
 class Moto extends Vehicule{
