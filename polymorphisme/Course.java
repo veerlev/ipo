@@ -44,7 +44,7 @@ class Vehicule{
          return niveauCarburant;
      }
 
-     public double performance(){
+     private double performance(){
         return vitesseMaximale / poids;
      }
      
