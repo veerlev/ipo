@@ -47,7 +47,12 @@ class Vehicule{
      public double performance(){
         return vitesseMaximale / poids;
      }
+     
+     public boolean estDeuxRoues() {
+        return false;
+    }
 }
+
 class Voiture extends Vehicule{
     private String categorie;
     
@@ -87,6 +92,10 @@ class Moto extends Vehicule{
         }
         return description;
     }
+    
+    public boolean estDeuxRoues() {
+        return !possedeSidecar;
+    }
 }
 
 class GrandPrix extends Rallye{
@@ -99,9 +108,30 @@ class GrandPrix extends Rallye{
     public void ajouter(Vehicule vehicule) {
         vehicules.add(vehicule);
     }
+
+    public boolean check() {
+        if (vehicules.size() > 1) {
+            if (vehicules.get(0).estDeuxRoues()) {
+                for (int i = 1; i < vehicules.size(); i++) {
+                    if (!vehicules.get(i).estDeuxRoues()){
+                        return false;                       
+                    }
+                } 
+            } else {
+                for (int i = 1; i < vehicules.size(); i++) {
+                    if (vehicules.get(i).estDeuxRoues()){
+                        return false;                       
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
 
-class Rallye{}
+abstract class Rallye{
+    public abstract boolean check();
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
