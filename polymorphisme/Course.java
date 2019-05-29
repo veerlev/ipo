@@ -127,6 +127,34 @@ class GrandPrix extends Rallye{
         }
         return true;
     }
+    
+    void run(int tours) {
+        if (!check()) {
+            System.out.println("Pas de Grand Prix");
+            return;
+        }
+        ArrayList<Vehicule> arrivees = new ArrayList<Vehicule>();
+        for (Vehicule vehicule : vehicules) {
+            if (vehicule.getCarburant() - tours > 0) {
+                arrivees.add(vehicule);
+            }
+        }
+        if (!arrivees.isEmpty()) {
+            Vehicule gagnant = arrivees.get(0);
+            if (arrivees.size() > 1) {
+                for (int i = 1; i < arrivees.size(); i++) {
+                    if (arrivees.get(i).meilleur(gagnant)) {
+                        gagnant = arrivees.get(i);
+                    }
+                }
+            }
+            System.out.println("Le gagnant du grand prix est :\n" + 
+                    gagnant.toString());
+        } else {
+            System.out.println("Elimination de tous les vehicules\r\n");
+        }
+        
+    }
 }
 
 abstract class Rallye{
