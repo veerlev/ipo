@@ -23,7 +23,7 @@ class Vehicule{
     }
 
     public boolean meilleur(Vehicule autreVehicule) {
-        return vitesseMaximale > autreVehicule.getVitesseMax();
+        return performance() > autreVehicule.performance();
     }
 
     public String getNom() {
@@ -40,6 +40,10 @@ class Vehicule{
      
      public int getCarburant() {
          return niveauCarburant;
+     }
+
+     public double performance(){
+        return vitesseMaximale / poids;
      }
 }
 /*******************************************
