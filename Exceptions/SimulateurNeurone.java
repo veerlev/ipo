@@ -100,6 +100,65 @@ class NeuroneCumulatif extends Neurone{
 				/ super.getAttenuation());
 	}
 }
+
+class Cerveau{
+	private ArrayList<Neurone> neurones;
+
+	public Cerveau() {
+		neurones = new ArrayList<Neurone>();
+	}
+
+	public int getNbNeurones() {
+		return neurones.size();
+	}
+
+	public Neurone getNeurone(int index) {
+		return neurones.get(index); //index out of bounds
+	}
+
+	public void ajouterNeurone(Position pos, double attenuation) {
+		neurones.add(new Neurone(pos, attenuation));
+	}
+
+	public void ajouterNeuroneCumulatif(Position pos, double attenuation) {
+		neurones.add(new NeuroneCumulatif(pos, attenuation));
+	}
+
+	public void stimuler(int index, double stimulus) {
+		neurones.get(index).recoitStimulus(stimulus); //index out of bounds
+	}
+
+	public double sonder(int index) {
+		return neurones.get(index).getSignal();  //index out of bounds
+	}
+
+	public void creerConnexions() {
+		int size = neurones.size();
+		if (size >= 2) {
+			neurones.get(0).connexion(neurones.get(1));
+			if (size >= 3) {
+				neurones.get(0).connexion(neurones.get(2));
+				if (size >= 4) {
+					for (int i = 1; i < size - 2; i += 2) {
+						Neurone next = neurones.get(i + 1);
+						neurones.get(i).connexion(next);
+						next.connexion(neurones.get(i + 2));
+					}
+				}
+			}
+		}
+	}
+
+	public String toString() {
+		String text = "*----------*\n\nLe cerveau contient ";
+		text += neurones.size() + " neurone(s)\n";
+		for (Neurone n : neurones) {
+			text += n;
+		}
+		text += "*----------*\n\n";
+		return text;
+	}
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
