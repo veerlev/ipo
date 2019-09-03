@@ -3,6 +3,31 @@ import java.util.ArrayList;
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
+ class Position{
+	private double x;
+	private double y;
+
+	public Position(double leX, double leY) {
+		x = leX;
+		y = leY;
+	}
+
+	public Position() {
+		this(0, 0);
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
