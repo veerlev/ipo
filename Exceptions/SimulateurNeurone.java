@@ -28,6 +28,65 @@ import java.util.ArrayList;
 		return "(" + x + ", " + y + ")";
 	}
 }
+
+class Neurone{
+	private Position position;
+	private double signal;
+	private double facteurAtt;
+	private ArrayList<Neurone> connexions;
+
+	public Neurone(Position laPosition, double leFacteurAtt) {
+		signal = 0;
+		position = laPosition;
+		facteurAtt = leFacteurAtt;
+		connexions = new ArrayList<Neurone>();
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public int getNbConnexions() {
+		return connexions.size();
+	}
+
+	public Neurone getConnexion(int index) { //IndexOutOfBoundsException - if the index is out of range (index < 0 || index >= size())
+		return connexions.get(index);
+	}
+
+	public double getAttenuation() {
+		return facteurAtt;
+	}
+
+	public double getSignal() {
+		return signal;
+	}
+
+	public void connexion(Neurone n) {
+		connexions.add(n);
+	}
+
+	public void recoitStimulus(double stimulus) {
+		signal = stimulus * facteurAtt;
+		for (Neurone n : connexions) {
+			n.recoitStimulus(signal);
+		}
+	}
+
+	public String toString() {
+		String text = "Le neurone en position ";
+		text += position + " avec attenuation ";
+		text += facteurAtt;
+		if (connexions.isEmpty()) {
+			return text + " sans connexion\n";
+		}
+		text += " en connexion avec\n";
+		for (Neurone n : connexions) {
+			text += "- un neurone en position " + n.getPosition() + "\n";
+		}
+		return text;
+	}
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
