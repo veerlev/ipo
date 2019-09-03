@@ -87,6 +87,19 @@ class Neurone{
 		return text;
 	}
 }
+
+class NeuroneCumulatif extends Neurone{
+
+	public NeuroneCumulatif(Position position, double facteurAtt) {
+		super(position, facteurAtt);
+	}
+
+	public void recoitStimulus(double stimulus) {
+		super.recoitStimulus(
+				(super.getSignal() + stimulus * super.getAttenuation())
+				/ super.getAttenuation());
+	}
+}
 /*******************************************
  * Ne pas modifier apres cette ligne
  * pour pr'eserver les fonctionnalit'es et
