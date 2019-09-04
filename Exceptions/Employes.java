@@ -67,6 +67,34 @@
  		return text;
  	}
  }
+
+ class Manager extends Employe{
+	private int nombreJours;
+	private int nombreClients;
+	public static final int FACTEUR_GAIN_CLIENT = 500;
+	public static final int FACTEUR_GAIN_VOYAGE = 100;
+
+	public Manager(String nom, double revenu, int nbj, int nbc, int taux) {
+		super(nom, revenu, taux);
+		nombreJours = nbj;
+		nombreClients = nbc;
+		System.out.println(" c'est un manager.");
+	}
+
+	public Manager(String nom, double revenu, int nbj, int nbc) {
+		this(nom, revenu, nbj, nbc, TAUX_DEFAUT);
+	}
+
+	public double revenuAnnuel() {
+		return super.revenuAnnuel() + FACTEUR_GAIN_CLIENT * nombreClients
+				+ FACTEUR_GAIN_VOYAGE * nombreJours;
+	}
+
+	public String toString() {
+		return super.toString() + "  A voyagé " + nombreJours + " jours et apporté "
+				+ nombreClients + " nouveaux clients.\n";
+	}
+}
 /*******************************************
  * Ne rien modifier apres cette ligne.
  *******************************************/
