@@ -1,12 +1,6 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
-"Nous avons un nouvel employé : "
-"Montant de la prime souhaitée par "
-"  A voyagé "
-" jours et apporté "
-"  A corrigé "
-"  A mené à bien "
 
 /*******************************************
  * Ne rien modifier apres cette ligne.
@@ -39,4 +33,3 @@ class Employes {
         // FIN TEST PARTIE 2
     }
 }
-
