@@ -1,7 +1,72 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
+ class Employe{
+ 	private final String nom;
+ 	private double revenu;
+ 	private int taux;
+ 	private double montantPrime;
+ 	public static final int TAUX_DEFAUT = 100;
 
+ 	public Employe(String leNom, double leRevenu, int leTaux) {
+ 		nom = leNom;
+ 		revenu = leRevenu;
+ 		montantPrime = 0;
+ 		if (leTaux >= 10 && leTaux <= 100) {
+ 			taux = leTaux;
+ 		} else {
+ 			if (leTaux < 10) {
+ 				taux = 10;
+ 			} else {
+ 				taux = 100;
+ 			}
+ 		}
+ 		System.out.print("Nous avons un nouvel employé : " + nom + ",");
+ 	}
+
+ 	public Employe(String leNom, double leRevenu) {
+ 		this(leNom, leRevenu, TAUX_DEFAUT);
+ 	}
+
+ 	public double revenuAnnuel() {
+ 		return 12 * revenu * (taux / 100.0)  + montantPrime;
+ 	}
+
+ 	public void demandePrime() {
+ 		int maxTentativesNb = 5;
+ 		Scanner in = new Scanner(System.in);
+ 		while (maxTentativesNb > 0) {
+ 			System.out.println("Montant de la prime souhaitée par " + nom + " ?");
+ 			double tentativePrime = revenu;
+ 			try {
+ 				tentativePrime = in.nextDouble();
+ 				if (tentativePrime > 0 && tentativePrime < revenu * 2.0 / 100) {
+ 					montantPrime = tentativePrime;
+ 					in.close();
+ 					return;
+ 				} else {
+ 					System.out.println("Trop cher!");
+ 				}
+ 			} catch(InputMismatchException e) {
+ 				System.out.println("Vous devez introduire un nombre!");
+ 				in.nextLine();
+ 			}
+ 			maxTentativesNb--;
+ 		}
+ 		in.close();
+ 	}
+
+ 	public String toString() {
+ 		String text = nom + " : \n" + "  Taux d'occupation : " + taux + "%. Salaire annuel : ";
+ 		text += String.format("%.2f", this.revenuAnnuel());
+ 		text += " francs";
+ 		if (montantPrime > 0) {
+ 			text +=", Prime : " + String.format("%.2f", montantPrime);
+ 		}
+ 		text += ".\n";
+ 		return text;
+ 	}
+ }
 /*******************************************
  * Ne rien modifier apres cette ligne.
  *******************************************/
