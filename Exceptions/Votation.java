@@ -4,10 +4,7 @@ import java.util.Random;
 /*******************************************
  * Completez le programme à partir d'ici.
  *******************************************/
-"vote électronique"
-System.out.println("Scrutin annulé, pas de votants");
-"Répartition des électeurs "
-" -> %.1f pour cent des électeurs\n"
+
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
