@@ -119,6 +119,28 @@ class Testeur extends Employe{
 	}
 }
 
+class Programmeur extends Employe{
+	private int nombreProjets;
+	public static final int FACTEUR_GAIN_PROJETS = 200;
+
+	public Programmeur(String nom, double revenu, int nbp, int taux) {
+		super(nom, revenu, taux);
+		nombreProjets = nbp;
+		System.out.println(" c'est un programmeur.");
+	}
+
+	public Programmeur(String nom, double revenu, int nbp) {
+		this(nom, revenu, nbp, TAUX_DEFAUT);
+	}
+
+	public double revenuAnnuel() {
+		return super.revenuAnnuel() + nombreProjets * FACTEUR_GAIN_PROJETS;
+	}
+
+	public String toString() {
+		return super.toString() + "  A mené à  bien " + nombreProjets + " projets";
+	}
+}
 /*******************************************
  * Ne rien modifier apres cette ligne.
  *******************************************/
