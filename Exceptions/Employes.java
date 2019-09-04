@@ -95,6 +95,30 @@
 				+ nombreClients + " nouveaux clients.\n";
 	}
 }
+
+class Testeur extends Employe{
+	private int nombreErreurs;
+	public static final int FACTEUR_GAIN_ERREURS = 10;
+
+	public Testeur(String nom, double revenu, int nbe, int taux) {
+		super(nom, revenu, taux);
+		nombreErreurs = nbe;
+		System.out.println(" c'est un testeur.");
+	}
+
+	public Testeur(String nom, double revenu, int nbe) {
+		this(nom, revenu, nbe, TAUX_DEFAUT);
+	}
+
+	public double revenuAnnuel() {
+		return super.revenuAnnuel() + nombreErreurs * FACTEUR_GAIN_ERREURS;
+	}
+
+	public String toString() {
+		return super.toString() + "  A corrigé " + nombreErreurs + " erreurs.";
+	}
+}
+
 /*******************************************
  * Ne rien modifier apres cette ligne.
  *******************************************/
