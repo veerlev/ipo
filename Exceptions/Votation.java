@@ -4,6 +4,40 @@ import java.util.Random;
 /*******************************************
  * Completez le programme à partir d'ici.
  *******************************************/
+class Postulant{
+	private String nom;
+	private int nbElecteurs;
+	
+	public Postulant(String leNom, int leNbElecteurs) {
+		nom = leNom;
+		nbElecteurs = leNbElecteurs;
+	}
+	
+	public Postulant(String leNom) {
+		this(leNom, 0);
+	}
+	
+	public Postulant(Postulant postulant) {
+		this(postulant.getNom(), postulant.getVotes());
+	}
+	
+	public void elect() {
+		nbElecteurs++;
+	}
+	
+	public void init() {
+		nbElecteurs = 0;
+	}
+	
+	public int getVotes() {
+		return nbElecteurs;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+}
+
 
 /*******************************************
  * Ne pas modifier les parties fournies
