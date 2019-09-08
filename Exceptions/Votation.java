@@ -198,6 +198,26 @@ class BulletinElectronique extends Vote implements CheckBulletin{
 		return "vote électronique " + super.toString();
 	}
 }
+
+class BulletinCourrier extends BulletinPapier implements CheckBulletin{
+	
+	public BulletinCourrier(String nom, int date, int dateLimite, boolean leEstSigne) {
+		super(nom, date, dateLimite, leEstSigne);
+	}
+	
+	public boolean estInvalide() {
+		return super.estInvalide() || !checkDate();
+	}
+	
+	public boolean checkDate() {
+		return  super.getDate() <= super.getDateLimite();
+	}
+	
+	public String toString() {
+		return "envoi par courrier d'un " 
+				+ super.toString(); 
+	}
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
