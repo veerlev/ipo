@@ -180,6 +180,24 @@ class BulletinPapier extends Vote{
 		return "vote par bulletin papier" + super.toString();
 	}
 }
+
+class BulletinElectronique extends Vote implements CheckBulletin{
+	
+	public BulletinElectronique(String nom, int date, int dateLimite) {
+		super(nom, date, dateLimite);
+	}
+	public boolean estInvalide() {
+		return !checkDate();
+	}
+	
+	public boolean checkDate() {
+		return super.getDate() <= super.getDateLimite() - 2;
+	}
+	
+	public String toString() {
+		return "vote électronique " + super.toString();
+	}
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
