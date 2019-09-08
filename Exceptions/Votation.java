@@ -165,6 +165,21 @@ abstract class Vote{
 	}
 	
 }
+
+class BulletinPapier extends Vote{	
+	private boolean estSigne;
+	public BulletinPapier(String nom, int date, int dateLimite, boolean leEstSigne) {
+		super(nom, date, dateLimite);
+		estSigne = leEstSigne;
+	}
+	public boolean estInvalide() {
+		return !estSigne;
+	}
+	
+	public String toString() {
+		return "vote par bulletin papier" + super.toString();
+	}
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
