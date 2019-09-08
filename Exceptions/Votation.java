@@ -218,6 +218,10 @@ class BulletinCourrier extends BulletinPapier implements CheckBulletin{
 				+ super.toString(); 
 	}
 }
+
+interface CheckBulletin{
+	boolean checkDate();
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
