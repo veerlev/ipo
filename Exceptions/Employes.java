@@ -96,8 +96,16 @@ import java.util.Scanner;
 	}
 
 	public String toString() {
-		return super.toString() + "  A voyagé " + nombreJours + " jours et apporté "
-				+ nombreClients + " nouveaux clients.\n";
+		String text =  super.toString() + "  A voyagé " + nombreJours + " jour";
+		if (nombreJours != 1){
+			text += "s";
+		}
+		text += " et apporté " + nombreClients + " nouveaux";
+		/*if (nombreClients != 1){ //does not pass test
+			text += "x";
+		}*/
+		text += " clients.\n";
+		return text;
 	}
 }
 
@@ -120,7 +128,12 @@ class Testeur extends Employe{
 	}
 
 	public String toString() {
-		return super.toString() + "  A corrigé " + nombreErreurs + " erreurs.";
+		String text = super.toString() + "  A corrigé " + nombreErreurs + " erreur"; 
+		if (nombreErreurs != 1){
+			text += "s";
+		}
+		text += ".";
+		return text;
 	}
 }
 
@@ -143,7 +156,12 @@ class Programmeur extends Employe{
 	}
 
 	public String toString() {
-		return super.toString() + "  A mené à  bien " + nombreProjets + " projets";
+		String text = super.toString() + "  A mené à  bien " + nombreProjets + " projet"; 
+		if (nombreProjets != 1){ //won't pass one test otherwise
+			text += "s";
+		}
+		//text += ".";
+		return text;
 	}
 }
 /*******************************************
