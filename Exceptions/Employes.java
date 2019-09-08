@@ -1,6 +1,11 @@
 /*******************************************
  * Completez le programme a partir d'ici.
  *******************************************/
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
  class Employe{
  	private final String nom;
  	private double revenu;
