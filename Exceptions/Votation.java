@@ -38,7 +38,102 @@ class Postulant{
 	}
 }
 
+class Scrutin{
+	private ArrayList<Postulant> postulants;
+	private int nbVotantsMax;
+	private int date;
+	private ArrayList<Vote> votes;
+	
+	public Scrutin(ArrayList<Postulant> lesPostulants, int leNbVotantsMax, int laDate, boolean initialiser) {
+		nbVotantsMax = leNbVotantsMax;
+		date = laDate;
+		votes = new ArrayList<Vote>();
+		postulants = new ArrayList<Postulant>();
+		if (lesPostulants != null) {
+			for (Postulant p : lesPostulants) {
+				Postulant postulant = new Postulant(p);
+				if (initialiser) {
+					postulant.init();
+				}
+				postulants.add(postulant);
+			}			
+		}
+	}
+	
+	public Scrutin(ArrayList<Postulant> lesPostulants, int leNbVotantsMax, int laDate) {
+		this(lesPostulants, leNbVotantsMax, laDate, true);
+	}
+	
+	public int calculerVotants() {
+		int resultat = 0;
+		for (Postulant p : postulants) {
+			resultat += p.getVotes();
+		}
+		return resultat;
+	}
+	
+	public void compterVotes() {
+		for (Vote vote : votes) {
+			if (!vote.estInvalide()) {
+				for (Postulant p : postulants) {
+					if (vote.getPostulant().equals(p.getNom())) {
+						p.elect();
+					}
+				}
+			}
+		}
+	}
+	
+	public void simuler(double taux, int dateVote) {
+		int nbVotants = (int) (nbVotantsMax * taux);
+		for (int i = 0; i < nbVotants; i++) {
+			int candNum = Utils.randomInt(postulants.size());
+			boolean signe = i % 2 == 1;
+			if (i % 3 == 0) {
+				votes.add(new BulletinElectronique(postulants.get(candNum).getNom(), dateVote, date));
+			}
+			if (i % 3 == 1) {
+				votes.add(new BulletinPapier(postulants.get(candNum).getNom(), dateVote, date, signe));
+			}
+			if (i % 3 == 2) {
+				votes.add(new BulletinCourrier(postulants.get(candNum).getNom(), dateVote, date, signe));
+			}
+			System.out.println(votes.get(i));
+		}
+	}
+	
+	public String gagnant() {		
+		Postulant gagnant = postulants.get(0);
+		int max = gagnant.getVotes();
+		for (int i = 1; i < postulants.size(); i++) {
+			Postulant autre = postulants.get(i);
+			if (max <= autre.getVotes()) {
+				gagnant = autre;
+				max = autre.getVotes();
+			}
+		}
+		return gagnant.getNom();
+	}
 
+	public void resultats() {
+		int nbEffectif = calculerVotants();
+		if (nbEffectif == 0) {
+			System.out.println("Scrutin annulé, pas de votants");
+			return;
+		}
+		System.out.format("Taux de participation -> %.1f pour cent\n",
+					nbEffectif * 100.0 / nbVotantsMax); 
+		System.out.println("Nombre effectif de votants -> " + nbEffectif);
+		System.out.println("Le chef choisi est -> " + gagnant());
+		System.out.println("\nRépartition des électeurs ");  
+		for (Postulant p : postulants) {
+			System.out.format("%s -> %.1f pour cent des électeurs\n", 
+					p.getNom(), p.getVotes() * 100.0 / nbEffectif);
+		}
+		System.out.println();
+	}
+		
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
