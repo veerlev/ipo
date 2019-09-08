@@ -134,6 +134,37 @@ class Scrutin{
 	}
 		
 }
+
+abstract class Vote{
+	private String nomPostulant;
+	private int date;
+	private int dateLimite;
+	
+	public Vote(String leNom, int laDate, int laDateLimite) {
+		nomPostulant = leNom;
+		date = laDate;
+		dateLimite = laDateLimite;
+	}
+	
+	abstract public boolean estInvalide(); 
+	
+	public int getDate() {
+		return date;
+	}
+	
+	public int getDateLimite() {
+		return dateLimite;
+	}
+	
+	public String getPostulant() {
+		return nomPostulant;
+	}
+	
+	public String toString() {
+		return " pour " + nomPostulant + " -> " + (estInvalide() ? "invalide" : "valide"); 
+	}
+	
+}
 /*******************************************
  * Ne pas modifier les parties fournies
  * pour pr'eserver les fonctionnalit'es et
